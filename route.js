@@ -19,5 +19,8 @@ router.use(function (req, res, next) {
   });
   //User
   router.get("/Clients", cors(),clientsC.getClients);
+  router.post("/AddClient", cors(),clientsC.createClient);
+  router.post("/AuthClient", cors(),clientsC.LoginAuth);
+ 
 
   module.exports = router;
