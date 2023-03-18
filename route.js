@@ -21,6 +21,10 @@ router.use(function (req, res, next) {
   router.get("/Clients", cors(),clientsC.getClients);
   router.post("/AddClient", cors(),clientsC.createClient);
   router.post("/AuthClient", cors(),clientsC.LoginAuth);
+  router.put("/Updateclient/:id", cors(), clientsC.updateClient);
+  router.get("/client/:id", cors(),clientsC.getClientById);
+  
+
  
 
   module.exports = router;
