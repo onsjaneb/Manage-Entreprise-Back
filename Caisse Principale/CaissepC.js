@@ -46,7 +46,90 @@ const createCaisse = (request, response) => {
     }
   );
 };
+const createTempsV = (request, response) => {
+  const { DateAjout, Validation } = request.body;
+  pool.query(que.AddTempsV, [DateAjout, Validation], (error, results) => {
+    if (error) {
+      throw error;
+    } else {
+      response.status(200).json({ message: "TempsV added successfully" });
+    }
+  });
+};
+const getValidation = (request, response) => {
+  pool.query(que.getTempsV, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getStat = (request, response) => {
+  pool.query(que.stat, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getStat1 = (request, response) => {
+  pool.query(que.stat1, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getStat2 = (request, response) => {
+  pool.query(que.stat2, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getStat3 = (request, response) => {
+  pool.query(que.stat3, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getStat4 = (request, response) => {
+  pool.query(que.stat4, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getStat5 = (request, response) => {
+  pool.query(que.stat5, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getStat6 = (request, response) => {
+  pool.query(que.stat6, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
 module.exports = {
   getCaisse,
   createCaisse,
+  createTempsV,
+  getValidation,
+  getStat,
+  getStat1,
+  getStat2,
+  getStat3,
+  getStat4,
+  getStat5,
+  getStat6,
 };

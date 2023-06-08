@@ -56,4 +56,14 @@ router.delete("/DeleteRecu/:id", cors(), RecuC.deleteRecu);
 //Caisse
 router.post("/CreateCaisse", cors(), CaisseC.createCaisse);
 router.get("/Caisses", cors(), CaisseC.getCaisse);
+router.get("/StatsC", cors(), CaisseC.getStat);
+router.get("/StatsC1", cors(), CaisseC.getStat1);
+router.get("/StatsC2", cors(), CaisseC.getStat2);
+router.get("/StatsC3", cors(), CaisseC.getStat3);
+router.get("/StatsC4", cors(), CaisseC.getStat4);
+router.get("/StatsC5", cors(), CaisseC.getStat5);
+router.get("/StatsC6", cors(), CaisseC.getStat6);
+//TempsValidation
+router.post("/CreateValidation", cors(), CaisseC.createTempsV);
+router.get("/Validation", cors(), CaisseC.getValidation);
 module.exports = router;
