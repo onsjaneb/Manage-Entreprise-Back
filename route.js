@@ -4,6 +4,7 @@ const cors = require("cors");
 const clientsC = require("./Clients/ClientsC");
 const livreurC = require("./Livreur/LivreurC");
 const UserC = require("./Personnel/personnelC");
+const RecuC = require("./Recu/RecuC");
 router.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -38,4 +39,17 @@ router.post("/createusers", cors(), UserC.createUser);
 router.post("/LoginAuth", cors(), UserC.LoginAuth);
 router.delete("/Deleteuser/:id", cors(), UserC.RemoveUser);
 router.put("/Updateuser/:id", cors(), UserC.updateUser);
+//Recu
+router.get("/Recus", cors(), RecuC.getRecu);
+router.get("/TotalRecuTod", cors(), RecuC.getTotalRecuTod);
+router.get("/SumPartLivreur", cors(), RecuC.getSumPartlivreur);
+router.get("/SumPartEntreprise", cors(), RecuC.getSumPartEntreprise);
+router.get("/SumCommission", cors(), RecuC.getSumCommission);
+router.get("/SumRecuNet", cors(), RecuC.getsUMRecuNet);
+router.get("/SumAvance", cors(), RecuC.getSumAvance);
+router.get("/SumRetour", cors(), RecuC.getRetour);
+router.get("/SumLivreur", cors(), RecuC.NbrLivreur);
+router.post("/AddRecu", cors(), RecuC.createRecu);
+router.put("/UpdateRecu/:id", cors(), RecuC.updateRecu);
+router.delete("/DeleteRecu/:id", cors(), RecuC.deleteRecu);
 module.exports = router;
