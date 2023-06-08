@@ -5,6 +5,7 @@ const clientsC = require("./Clients/ClientsC");
 const livreurC = require("./Livreur/LivreurC");
 const UserC = require("./Personnel/personnelC");
 const RecuC = require("./Recu/RecuC");
+const CaisseC = require("./Caisse Principale/CaissepC");
 router.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -52,4 +53,7 @@ router.get("/SumLivreur", cors(), RecuC.NbrLivreur);
 router.post("/AddRecu", cors(), RecuC.createRecu);
 router.put("/UpdateRecu/:id", cors(), RecuC.updateRecu);
 router.delete("/DeleteRecu/:id", cors(), RecuC.deleteRecu);
+//Caisse
+router.post("/CreateCaisse", cors(), CaisseC.createCaisse);
+router.get("/Caisses", cors(), CaisseC.getCaisse);
 module.exports = router;
