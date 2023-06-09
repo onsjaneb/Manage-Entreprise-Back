@@ -27,6 +27,12 @@ router.post("/AddClient", cors(), clientsC.createClient);
 router.put("/Updateclient/:id", cors(), clientsC.updateClient);
 router.get("/client/:id", cors(), clientsC.getClientById);
 router.delete("/Deleteclient/:id", cors(), clientsC.deleteClient);
+router.get("/ClientFidele", cors(), clientsC.getClientFidele);
+router.get("/ClientMoyen", cors(), clientsC.getClientMoyen);
+router.get("/ClientNouveau", cors(), clientsC.getClientNouveau);
+router.get("/ClientGentil", cors(), clientsC.getClientGentil);
+router.get("/ClientMechant", cors(), clientsC.getClientMechant);
+router.get("/ClientNormal", cors(), clientsC.getClientNormal);
 //Livreur
 router.get("/Livreurs", cors(), livreurC.getLivreur);
 router.post("/AddLivreur", cors(), livreurC.createLivreur);

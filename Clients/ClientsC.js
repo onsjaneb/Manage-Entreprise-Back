@@ -128,17 +128,77 @@ const getClientById = (request, response) => {
 };
 const deleteClient = (request, response) => {
   const id = parseInt(request.params.id);
-    pool.query(que.removeclient, [id], (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).json("Client deleted");
-    });
+  pool.query(que.removeclient, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json("Client deleted");
+  });
+};
+const getClientFidele = (request, response) => {
+  const Type = "Fidéle";
+  pool.query(que.getclientbyType, [Type], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getClientMoyen = (request, response) => {
+  const Type = "Moyen";
+  pool.query(que.getclientbyType, [Type], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getClientNouveau = (request, response) => {
+  const Type = "Nouveau";
+  pool.query(que.getclientbyType, [Type], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getClientGentil = (request, response) => {
+  const caractere = "Gentil";
+  pool.query(que.getclientbyCar, [caractere], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getClientMechant = (request, response) => {
+  const caractere = "Méchant";
+  pool.query(que.getclientbyCar, [caractere], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+const getClientNormal = (request, response) => {
+  const caractere = "Normal";
+  pool.query(que.getclientbyCar, [caractere], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
 };
 module.exports = {
   getClients,
   createClient,
   updateClient,
   getClientById,
-  deleteClient
+  deleteClient,
+  getClientFidele,
+  getClientMoyen,
+  getClientNouveau,
+  getClientGentil,
+  getClientMechant,
+  getClientNormal,
 };
