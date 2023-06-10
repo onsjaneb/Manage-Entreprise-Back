@@ -1,7 +1,7 @@
 const AddRecu =
   'INSERT INTO public."Recu" ("Livreur","Totalrecu","Commission","PLivreur","PEntreprise","Partlivreur","PartEntreprise","RecuNet","DateAjout", "Avance", "Retour", "Statut") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)';
 const getRechTod =
-  'SELECT * FROM public."Recu" WHERE date("DateAjout") = date(now()) ORDER BY id DESC';
+  'SELECT * FROM public."Recu" WHERE "DateAjout" = DATEADD(day, -1, GETDATE()) ORDER BY id DESC';
 const updaterecu =
   'UPDATE public."Recu" SET "Livreur" = $1, "Totalrecu" = $2, "Commission" = $3, "PLivreur" = $4, "PEntreprise" = $5, "Partlivreur" = $6, "PartEntreprise" = $7, "RecuNet" = $8, "DateAjout" = $9,  "Avance" = $10, "Retour" = $11, "Statut" = $12  WHERE id = $13';
 const removeRecu = 'DELETE FROM public."Recu" WHERE id = $1';
