@@ -26,6 +26,8 @@ const createRecu = (request, response) => {
     Avance,
     Retour,
     Statut,
+    Fraislivraison,
+    DateCompta,
   } = request.body;
   pool.query(
     que.AddRecu,
@@ -42,6 +44,8 @@ const createRecu = (request, response) => {
       Avance,
       Retour,
       Statut,
+      Fraislivraison,
+      DateCompta,
     ],
     (error, results) => {
       if (error) {
@@ -67,6 +71,8 @@ const updateRecu = (request, response) => {
     Avance,
     Retour,
     Statut,
+    Fraislivraison,
+    DateCompta,
   } = request.body;
   pool.query(
     que.updaterecu,
@@ -83,6 +89,8 @@ const updateRecu = (request, response) => {
       Avance,
       Retour,
       Statut,
+      Fraislivraison,
+      DateCompta,
       id,
     ],
     (error, results) => {
