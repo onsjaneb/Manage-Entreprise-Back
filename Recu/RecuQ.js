@@ -21,6 +21,8 @@ const sumRetour =
   'SELECT SUM("Retour") FROM public."Recu" WHERE date("DateAjout") = date(now())';
 const sumLivreur =
   'SELECT COUNT(*) FROM public."Recu" WHERE date("DateAjout") = date(now())';
+const getRecuFiche =
+  'SELECT * FROM public."Recu" WHERE "Livreur" = $1 And "DateCompta" BETWEEN $2 AND $3';
 module.exports = {
   AddRecu,
   getRechTod,
@@ -34,4 +36,5 @@ module.exports = {
   sumAvance,
   sumRetour,
   sumLivreur,
+  getRecuFiche,
 };

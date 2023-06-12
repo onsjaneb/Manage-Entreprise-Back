@@ -174,6 +174,21 @@ const NbrLivreur = (request, response) => {
     response.status(200).json(results.rows);
   });
 };
+const RecuFiche = (request, response) => {
+  const Livreur = request.params.Livreur;
+  const Datedebut = new Date(request.params.Datedebut);
+  const Datefin = new Date(request.params.Datefin);
+  pool.query(
+    que.getRecuFiche,
+    [Livreur, Datedebut, Datefin],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
 module.exports = {
   createRecu,
   getRecu,
@@ -187,4 +202,5 @@ module.exports = {
   getSumAvance,
   getRetour,
   NbrLivreur,
+  RecuFiche,
 };

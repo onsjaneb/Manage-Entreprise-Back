@@ -59,6 +59,7 @@ router.get("/SumLivreur", cors(), RecuC.NbrLivreur);
 router.post("/AddRecu", cors(), RecuC.createRecu);
 router.put("/UpdateRecu/:id", cors(), RecuC.updateRecu);
 router.delete("/DeleteRecu/:id", cors(), RecuC.deleteRecu);
+router.get("/RecuFiche/:Livreur/:Datedebut/:Datefin", cors(), RecuC.RecuFiche);
 //Caisse
 router.post("/CreateCaisse", cors(), CaisseC.createCaisse);
 router.get("/Caisses", cors(), CaisseC.getCaisse);
