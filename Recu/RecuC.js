@@ -189,6 +189,36 @@ const RecuFiche = (request, response) => {
     }
   );
 };
+const AvanceFiche = (request, response) => {
+  const Livreur = request.params.Livreur;
+  const Datedebut = new Date(request.params.Datedebut);
+  const Datefin = new Date(request.params.Datefin);
+  pool.query(
+    que.AvanceFiche,
+    [Livreur, Datedebut, Datefin],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
+const PartLivreurFiche = (request, response) => {
+  const Livreur = request.params.Livreur;
+  const Datedebut = new Date(request.params.Datedebut);
+  const Datefin = new Date(request.params.Datefin);
+  pool.query(
+    que.PartLivreurFiche,
+    [Livreur, Datedebut, Datefin],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
 module.exports = {
   createRecu,
   getRecu,
@@ -203,4 +233,6 @@ module.exports = {
   getRetour,
   NbrLivreur,
   RecuFiche,
+  AvanceFiche,
+  PartLivreurFiche,
 };

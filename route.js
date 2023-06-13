@@ -60,6 +60,16 @@ router.post("/AddRecu", cors(), RecuC.createRecu);
 router.put("/UpdateRecu/:id", cors(), RecuC.updateRecu);
 router.delete("/DeleteRecu/:id", cors(), RecuC.deleteRecu);
 router.get("/RecuFiche/:Livreur/:Datedebut/:Datefin", cors(), RecuC.RecuFiche);
+router.get(
+  "/AvanceFiche/:Livreur/:Datedebut/:Datefin",
+  cors(),
+  RecuC.AvanceFiche
+);
+router.get(
+  "/PartLivreurFiche/:Livreur/:Datedebut/:Datefin",
+  cors(),
+  RecuC.PartLivreurFiche
+);
 //Caisse
 router.post("/CreateCaisse", cors(), CaisseC.createCaisse);
 router.get("/Caisses", cors(), CaisseC.getCaisse);
