@@ -29,6 +29,7 @@ const createClient = (request, response) => {
     Proffession,
     Email,
     Commentaire,
+    Nbrannulation,
   } = request.body;
   pool.query(que.checkTelexistance, [Telephone], (error, results) => {
     if (results.rows.length) {
@@ -52,6 +53,7 @@ const createClient = (request, response) => {
           Proffession,
           Email,
           Commentaire,
+          Nbrannulation,
         ],
         (error, results) => {
           if (error) {
@@ -82,6 +84,7 @@ const updateClient = (request, response) => {
     Proffession,
     Email,
     Commentaire,
+    Nbrannulation,
   } = request.body;
   pool.query(que.getclientbyid, [id], (error, results) => {
     const noclientfound = !results.rows.length;
@@ -107,6 +110,7 @@ const updateClient = (request, response) => {
       Proffession,
       Email,
       Commentaire,
+      Nbrannulation,
       id,
     ],
     (error, results) => {
