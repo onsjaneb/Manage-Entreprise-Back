@@ -34,8 +34,8 @@ router.get("/ClientNouveau", cors(), clientsC.getClientNouveau);
 router.get("/ClientGentil", cors(), clientsC.getClientGentil);
 router.get("/ClientMechant", cors(), clientsC.getClientMechant);
 router.get("/ClientNormal", cors(), clientsC.getClientNormal);
-router.get("/Checktelex", cors(), clientsC.CheckTelExistance);
-router.get("/Checknameex", cors(), clientsC.CheckNameExistance);
+router.get("/Checktelex/:Telephone", cors(), clientsC.CheckTelExistance);
+router.get("/Checknameex/:NomComplet", cors(), clientsC.CheckNameExistance);
 //Livreur
 router.get("/Livreurs", cors(), livreurC.getLivreur);
 router.post("/AddLivreur", cors(), livreurC.createLivreur);

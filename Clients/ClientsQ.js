@@ -22,5 +22,5 @@ module.exports = {
   removeclient,
   getclientbyType,
   getclientbyCar,
-  checkNameexistance
+  checkNameexistance,
 };
