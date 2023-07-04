@@ -15,17 +15,19 @@ const getClients = (request, response) => {
 const CheckTelExistance = (request, response) => {
   const Telephone = request.params.Telephone;
   pool.query(que.checkTelexistance, [Telephone], (error, results) => {
-    if (results.rows.length) {
-      response.json({ message: "Client Tel already exist !" });
+    if (error) {
+      throw error;
     }
+    response.status(200).json(results.rows);
   });
 };
 const CheckNameExistance = (request, response) => {
   const NomComplet = request.params.NomComplet;
   pool.query(que.checkNameexistance, [NomComplet], (error, results) => {
-    if (results.rows.length) {
-      response.json({ message: "Client NomComplet already exist !" });
+    if (error) {
+      throw error;
     }
+    response.status(200).json(results.rows);
   });
 };
 const createClient = (request, response) => {
