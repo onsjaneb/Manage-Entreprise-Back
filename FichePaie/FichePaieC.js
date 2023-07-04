@@ -15,7 +15,6 @@ const createFiche = (request, response) => {
     livraisongratuite,
     montantbrut,
     montantnet,
-    Date,
   } = request.body;
   pool.query(
     que.AddFichePaie,
@@ -29,7 +28,6 @@ const createFiche = (request, response) => {
       livraisongratuite,
       montantbrut,
       montantnet,
-      Date,
     ],
     (error, results) => {
       if (error) {

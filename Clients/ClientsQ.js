@@ -12,7 +12,7 @@ const getclientbyCar =
   'SELECT * FROM public."Clients" WHERE "caractere" = $1 ORDER BY id ASC';
 const removeclient = 'DELETE FROM public."Clients" WHERE id = $1';
 const checkNameexistance =
-  'SELECT * FROM public."Clients" WHERE "NomComplet"=$1';
+  'SELECT * FROM public."Clients" WHERE "NomComplet" = $1';
 module.exports = {
   getClients,
   AddClient,
