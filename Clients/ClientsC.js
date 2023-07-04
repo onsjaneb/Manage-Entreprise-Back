@@ -22,7 +22,7 @@ const CheckTelExistance = (request, response) => {
   });
 };
 const CheckNameExistance = (request, response) => {
-  const NomComplet = parseString(request.params.NomComplet);
+  const NomComplet = request.params.NomComplet.toString();
   pool.query(que.checkNameexistance, [NomComplet], (error, results) => {
     if (error) {
       throw error;
