@@ -49,40 +49,34 @@ const createClient = (request, response) => {
     Commentaire,
     Nbrannulation,
   } = request.body;
-  pool.query(que.checkTelexistance, [Telephone], (error, results) => {
-    if (results.rows.length) {
-      response.json({ message: "Client already exist !" });
-    } else {
-      pool.query(
-        que.AddClient,
-        [
-          NomComplet,
-          AdressePostale,
-          NomAgentTel,
-          Telephone,
-          Sexe,
-          caractere,
-          NombreCommande,
-          NombreRetour,
-          TypeClient,
-          Appele,
-          DateNaissance,
-          DateAppel,
-          Proffession,
-          Email,
-          Commentaire,
-          Nbrannulation,
-        ],
-        (error, results) => {
-          if (error) {
-            throw error;
-          } else {
-            response.status(200).json({ message: "Client added successfully" });
-          }
-        }
-      );
+  pool.query(
+    que.AddClient,
+    [
+      NomComplet,
+      AdressePostale,
+      NomAgentTel,
+      Telephone,
+      Sexe,
+      caractere,
+      NombreCommande,
+      NombreRetour,
+      TypeClient,
+      Appele,
+      DateNaissance,
+      DateAppel,
+      Proffession,
+      Email,
+      Commentaire,
+      Nbrannulation,
+    ],
+    (error, results) => {
+      if (error) {
+        throw error;
+      } else {
+        response.status(200).json({ message: "Client added successfully" });
+      }
     }
-  });
+  );
 };
 const updateClient = (request, response) => {
   const id = parseInt(request.params.id);
