@@ -12,6 +12,22 @@ const getClients = (request, response) => {
     response.status(200).json(results.rows);
   });
 };
+const CheckTelExistance = (request, response) => {
+  const Telephone = request.params.Telephone;
+  pool.query(que.checkTelexistance, [Telephone], (error, results) => {
+    if (results.rows.length) {
+      response.json({ message: "Client Tel already exist !" });
+    }
+  });
+};
+const CheckNameExistance = (request, response) => {
+  const NomComplet = request.params.NomComplet;
+  pool.query(que.checkNameexistance, [NomComplet], (error, results) => {
+    if (results.rows.length) {
+      response.json({ message: "Client NomComplet already exist !" });
+    }
+  });
+};
 const createClient = (request, response) => {
   const {
     NomComplet,
@@ -205,4 +221,6 @@ module.exports = {
   getClientGentil,
   getClientMechant,
   getClientNormal,
+  CheckTelExistance,
+  CheckNameExistance,
 };

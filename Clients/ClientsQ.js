@@ -11,6 +11,8 @@ const getclientbyType =
 const getclientbyCar =
   'SELECT * FROM public."Clients" WHERE "caractere" = $1 ORDER BY id ASC';
 const removeclient = 'DELETE FROM public."Clients" WHERE id = $1';
+const checkNameexistance =
+  'SELECT c FROM public."Clients" c WHERE c."NomComplet"=$1';
 module.exports = {
   getClients,
   AddClient,
@@ -20,4 +22,5 @@ module.exports = {
   removeclient,
   getclientbyType,
   getclientbyCar,
+  checkNameexistance
 };
