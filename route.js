@@ -88,4 +88,9 @@ router.post("/CreateValidation", cors(), CaisseC.createTempsV);
 router.get("/Validation", cors(), CaisseC.getValidation);
 //Fiche de Paie
 router.post("/CreateFiche", cors(), FicheC.createFiche);
+router.get(
+  "/FichePaie/:livreur/:Datedebut/:Datefin",
+  cors(),
+  FicheC.Ficheparld
+);
 module.exports = router;

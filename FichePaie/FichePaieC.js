@@ -38,6 +38,22 @@ const createFiche = (request, response) => {
     }
   );
 };
+const Ficheparld = (request, response) => {
+  const livreur = request.params.livreur;
+  const Datedebut = new Date(request.params.Datedebut);
+  const Datefin = new Date(request.params.Datefin);
+  pool.query(
+    que.getficheparld,
+    [livreur, Datedebut, Datefin],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
 module.exports = {
   createFiche,
+  Ficheparld
 };
