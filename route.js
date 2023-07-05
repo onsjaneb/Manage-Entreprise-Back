@@ -6,6 +6,7 @@ const livreurC = require("./Livreur/LivreurC");
 const UserC = require("./Personnel/personnelC");
 const RecuC = require("./Recu/RecuC");
 const CaisseC = require("./Caisse Principale/CaissepC");
+const CaissefC = require("./Caisse Finale/CaissefC");
 const FicheC = require("./FichePaie/FichePaieC");
 router.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -83,6 +84,8 @@ router.get("/StatsC3", cors(), CaisseC.getStat3);
 router.get("/StatsC4", cors(), CaisseC.getStat4);
 router.get("/StatsC5", cors(), CaisseC.getStat5);
 router.get("/StatsC6", cors(), CaisseC.getStat6);
+router.get("/CreateDepense", cors(), CaissefC.createDepense);
+
 //TempsValidation
 router.post("/CreateValidation", cors(), CaisseC.createTempsV);
 router.get("/Validation", cors(), CaisseC.getValidation);
@@ -93,4 +96,5 @@ router.get(
   cors(),
   FicheC.Ficheparld
 );
+router.get("/FicheDePaie/:id", cors(), FicheC.getFicheById);
 module.exports = router;

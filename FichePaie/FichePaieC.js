@@ -53,7 +53,17 @@ const Ficheparld = (request, response) => {
     }
   );
 };
+const getFicheById = (request, response) => {
+  const id = parseInt(request.params.id);
+  pool.query(que.getfichebyid, [id], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
 module.exports = {
   createFiche,
-  Ficheparld
+  Ficheparld,
+  getFicheById,
 };
